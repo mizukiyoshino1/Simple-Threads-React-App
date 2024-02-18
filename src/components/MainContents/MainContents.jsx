@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './MainContents.css';
 
-import MessageIcon from './MessageIcon';
+import MessageIcon from './MessageIcon/MessageIcon';
 
 function MainContents() {
     const [contents, setContents] = useState([]);
@@ -25,9 +26,6 @@ function MainContents() {
 
     return (
         <div className="main-contents">
-            <a href="/new">
-                <button className="new-button" type="button">New Post</button>
-            </a>
             {contents.map(content => (
                 <MessageIcon key={content.id} content={content} />
             ))}

@@ -1,0 +1,41 @@
+.new-post-container {
+    max-width: 500px;
+    margin: 90px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.new-post-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.new-post-container label {
+    font-weight: bold;
+}
+
+.content-input {
+    width: 97%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none;
+}
+
+.post-button, .back-button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.post-button:hover, .back-button:hover {
+    background-color: #0056b3;
+}

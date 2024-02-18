@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import './NewPost.css';
 
 function NewPost() {
 
@@ -43,14 +44,14 @@ function NewPost() {
     }
 
     return (
-        <div>
+        <div className="new-post-container">
             <h2>New Post</h2>
             <form onSubmit={onSubmit}>
                 <label>content</label>
-                <textarea onChange={onChangeContent} value={content} size="20" maxlength="200"></textarea>
-                <input type="submit" value="post" />
+                <textarea className="content-input" onChange={onChangeContent} value={content} size="20" maxlength="200"></textarea>
+                <input type="submit" value="Post" className="post-button" />
             </form>
-            <input type="button" value="back" onClick={backToTop}/>
+            <button onClick={backToTop} className="back-button">Back</button>
         </div>
     );
 }

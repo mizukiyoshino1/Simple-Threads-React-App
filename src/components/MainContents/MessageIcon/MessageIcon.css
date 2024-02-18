@@ -1,0 +1,15 @@
+.message-icon {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 50px;
+    background-color: #f9f9f9;
+}
+
+.message-icon .text {
+    margin-top: 5px;
+}
+
+.message-icon .text span {
+    font-weight: bold;
+    color: #333;
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import './MessageIcon.css';
 
 const MessageIcon = ({ content }) => {
     return (
