@@ -1,31 +1,56 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-const NewPost = () => {
-    const handleSubmit = (event) => {
-        // フォームの送信処理を記述する
-        event.preventDefault();
-        // 送信処理が完了した後の処理を記述する
-    };
+function NewPost() {
+
+    // 入力情報
+    const [content, setContent] = useState('');
+
+    // 画面遷移
+    const navigation = useNavigate();
+
+    /**
+     * 投稿処理
+     * 
+     */
+    const onSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            await axios.post('http://localhost:8080/api/add',{
+                content: content
+            });
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+
+        // Top画面に画面遷移
+        navigation('/');
+    }
+
+    /**
+     * トップ画面へ戻る処理
+     * 
+     */
+    const backToTop = () => {
+        navigation('/');
+    }
+
+    // onChange
+    const onChangeContent = (e) => {
+        setContent(e.target.value);
+    }
 
     return (
         <div>
-            <div className="header-contents">
-                <h2>New Post</h2>
-            </div>
-            <div className="main-contents">
-                <form method="post" action="/add" onSubmit={handleSubmit}>
-                    <div className="form-area">
-                        <label>content</label>
-                        <textarea className="tweet-box" name="content" rows="4" cols="50" maxLength="200"></textarea><br />
-                        <input type="submit" value="post" />
-                    </div>
-                </form>
-            </div>
-            <div className="footer-contents">
-                <form action="/">
-                    <input type="submit" value="back" />
-                </form>
-            </div>
+            <h2>New Post</h2>
+            <form onSubmit={onSubmit}>
+                <label>content</label>
+                <textarea onChange={onChangeContent} value={content} size="20" maxlength="200"></textarea>
+                <input type="submit" value="post" />
+            </form>
+            <input type="button" value="back" onClick={backToTop}/>
         </div>
     );
 }
