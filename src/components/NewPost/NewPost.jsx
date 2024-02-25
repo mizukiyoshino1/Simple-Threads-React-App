@@ -8,6 +8,11 @@ function NewPost() {
     // 入力情報
     const [content, setContent] = useState('');
 
+    // onChange
+    const onChangeContent = (e) => {
+        setContent(e.target.value);
+    }
+
     // 画面遷移
     const navigation = useNavigate();
 
@@ -36,11 +41,6 @@ function NewPost() {
      */
     const backToTop = () => {
         navigation('/');
-    }
-
-    // onChange
-    const onChangeContent = (e) => {
-        setContent(e.target.value);
     }
 
     return (

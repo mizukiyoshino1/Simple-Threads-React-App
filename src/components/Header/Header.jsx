@@ -10,12 +10,17 @@ const Header = () => {
     const navigation = useNavigate();
 
     // Postボタン表示判定処理
-    const isNewPostRoute = location.pathname === '/new';
+    const isNewPostRoute = location.pathname === '/newpost';
 
     // 新規投稿画面へ遷移
     const goToNewPostScreen = () => {
-        navigation('/new');
+        navigation('/newpost');
     };
+
+    // 新規登録画面へ遷移
+    const goToSignUpScreen = () => {
+        navigation('/signup');
+    }
 
     return (
         <div className="header-container">
@@ -23,6 +28,7 @@ const Header = () => {
             {!isNewPostRoute && (
                 <button className="new-button" type="button" onClick={goToNewPostScreen}>New Post</button>
             )}
+            <button className="signup-button" type="button" onClick={goToSignUpScreen}>Sign Up</button>
         </div>
     );
 }
