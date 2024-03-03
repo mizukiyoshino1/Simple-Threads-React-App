@@ -1,29 +1,22 @@
-import React, { useState } from 'react';
-import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
-import Header from './components/Header/Header';
+import React from 'react';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import MainContents from './components/MainContents/MainContents';
 import NewPost from './components/NewPost/NewPost';
-import UserAccess from './components/UserAccess/UserAccess';
+import SignUp from './components/Auth/SignUp/SignUp';
+import Login from './components/Auth/Login/Login';
+import { useAuthContext } from './context/AuthContext';
 
 function App() {
   // ログイン情報
-  const [isLogin, setIsLogin] = useState(false);
-
-  // ログイン状態を管理
-  const handleLogin = (loginStatus) => {
-    setIsLogin(loginStatus);
-  };
+  const { user } = useAuthContext();
 
   return (
-    <BrowserRouter>
-      {isLogin && <Header/>}
-      <Routes>
-        <Route path='/' element={isLogin ? <MainContents /> : <Navigate to="/login"/>} />
-        <Route path='/newpost' element={isLogin ? <NewPost /> : <Navigate to="/login"/>} />
-        <Route path='/login' element={<UserAccess onLogin={handleLogin} />}/>
-        <Route path='/signup' element={<UserAccess onLogin={handleLogin} />}/>
-      </Routes>
-    </BrowserRouter>
+    <Routes>
+      <Route path='/login' element={<Login />} />
+      <Route path='/signup' element={<SignUp />} />
+      <Route path='/' element={user ? <MainContents /> : <Navigate to="/login" />} />
+      <Route path='/newpost' element={user ? <NewPost /> : <Navigate to="/login" />} />
+    </Routes>
   );
 }
 

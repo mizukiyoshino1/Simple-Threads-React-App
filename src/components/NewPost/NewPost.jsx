@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './NewPost.css';
+import Header from '../Header/Header';
 
 function NewPost() {
 
@@ -44,15 +45,18 @@ function NewPost() {
     }
 
     return (
-        <div className="new-post-container">
-            <h2>New Post</h2>
-            <form onSubmit={onSubmit}>
-                <label>content</label>
-                <textarea className="content-input" onChange={onChangeContent} value={content} size="20" maxlength="200"></textarea>
-                <input type="submit" value="Post" className="post-button" />
-            </form>
-            <button onClick={backToTop} className="back-button">Back</button>
-        </div>
+        <>
+            <Header />
+            <div className="new-post-container">
+                <h2>New Post</h2>
+                <form onSubmit={onSubmit}>
+                    <label>content</label>
+                    <textarea className="content-input" onChange={onChangeContent} value={content} size="20" maxlength="200"></textarea>
+                    <input type="submit" value="Post" className="post-button" />
+                </form>
+                <button onClick={backToTop} className="back-button">Back</button>
+            </div>
+        </>
     );
 }
 

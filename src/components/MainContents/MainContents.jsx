@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './MainContents.css';
-
+import Header from '../Header/Header';
 import MessageIcon from './MessageIcon/MessageIcon';
 
 function MainContents() {
@@ -25,11 +25,14 @@ function MainContents() {
     }, []); // 空の配列を依存リストに渡して初期化時にのみ実行するようにする
 
     return (
-        <div className="main-contents">
-            {contents.map(content => (
-                <MessageIcon key={content.id} content={content} />
-            ))}
-        </div>
+        <>
+            <Header />
+            <div className="main-contents">
+                {contents.map(content => (
+                    <MessageIcon key={content.id} content={content} />
+                ))}
+            </div>
+        </>
     );
 }
 

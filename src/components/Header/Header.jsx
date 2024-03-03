@@ -1,6 +1,7 @@
 import React from 'react';
 import './Header.css';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { getAuth } from "firebase/auth";
 
 const Header = () => {
     // location情報
@@ -17,10 +18,15 @@ const Header = () => {
         navigation('/newpost');
     };
 
-    // 新規登録画面へ遷移
-    const goToSignUpScreen = () => {
-        navigation('/signup');
-    }
+    /**
+     * ログアウト処理
+     * 
+     */
+    const handleLogout = () => {
+        const auth = getAuth()
+        auth.signOut();
+        navigation('/login');
+    };
 
     return (
         <div className="header-container">
@@ -28,7 +34,7 @@ const Header = () => {
             {!isNewPostRoute && (
                 <button className="new-button" type="button" onClick={goToNewPostScreen}>New Post</button>
             )}
-            <button className="signup-button" type="button" onClick={goToSignUpScreen}>Sign Up</button>
+            <button className="logout-button" type="button" onClick={handleLogout}>Logout</button>
         </div>
     );
 }
