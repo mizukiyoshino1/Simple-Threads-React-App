@@ -16,7 +16,13 @@
     margin: 0;
 }
 
-.new-button,.logout-button {
+.button-group {
+    display: flex;
+    align-items: center;
+}
+
+.new-button,
+.logout-button {
     background-color: #007bff;
     color: #fff;
     padding: 10px 20px;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState} from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import MainContents from './components/MainContents/MainContents';
 import NewPost from './components/NewPost/NewPost';
@@ -9,6 +9,7 @@ import { useAuthContext } from './context/AuthContext';
 function App() {
   // ログイン情報
   const { user } = useAuthContext();
+  console.log(user);
 
   return (
     <Routes>

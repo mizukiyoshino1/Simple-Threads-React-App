@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { Link, useNavigate } from 'react-router-dom';
+import './Login.css';
 
 const Login = () => {
 
@@ -32,35 +33,41 @@ const Login = () => {
     };
 
     return (
-    <div>
-        <h1>ログイン</h1>
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label>メールアドレス</label>
-                <input
-                    name="email"
-                    type="email"
-                    placeholder="email"
-                    onChange={(event) => handleChangeEmail(event)}
-                />
+        <div className="container">
+            <div className="login-form">
+                <h2>ログイン</h2>
+                <form onSubmit={handleSubmit}>
+                    <div className="form-group">
+                        <label htmlFor="email">メールアドレス</label>
+                        <input
+                            type="email"
+                            id="email"
+                            value={email}
+                            onChange={handleChangeEmail}
+                            className="form-control"
+                            required
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="password">パスワード</label>
+                        <input
+                            type="password"
+                            id="password"
+                            value={password}
+                            onChange={handleChangePassword}
+                            className="form-control"
+                            required
+                        />
+                    </div>
+                    <button type="submit" className="btn btn-primary">
+                        ログイン
+                    </button>
+                </form>
+                <div className="signup-link">
+                    アカウントをお持ちでないですか？ <Link to="/signup">こちらからサインアップ</Link>
+                </div>
             </div>
-            <div>
-                <label>パスワード</label>
-                <input
-                    name="password"
-                    type="password"
-                    placeholder="password"
-                    onChange={(event) => handleChangePassword(event)}
-                />
-            </div>
-            <div>
-                <button>ログイン</button>
-            </div>
-            <div>
-                ユーザ登録は<Link to={'/signup'}>こちら</Link>から
-            </div>
-        </form>
-    </div>
+        </div>
     );
 };
 
