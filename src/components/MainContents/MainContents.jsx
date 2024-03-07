@@ -5,6 +5,7 @@ import Header from '../Header/Header';
 import MessageIcon from './MessageIcon/MessageIcon';
 
 function MainContents() {
+    // 投稿情報
     const [contents, setContents] = useState([]);
 
     /**
