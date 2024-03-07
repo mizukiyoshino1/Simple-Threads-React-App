@@ -1,7 +1,7 @@
 .header-container {
     background-color: #333;
     color: #fff;
-    padding: 20px;
+    padding: 15px;
     position: fixed;
     width: 100%;
     top: 0;
@@ -11,9 +11,16 @@
     align-items: center;
 }
 
-.header-title {
-    font-size: 24px;
-    margin: 0;
+.header-title-link {
+    font-family: 'Arial Black';
+    font-size: 27px;
+    font-weight: bold;
+    color: rgb(227, 224, 217);
+    text-decoration: none;
+}
+
+.header-title-link:hover {
+    color: gray;
 }
 
 .button-group {
@@ -21,18 +28,96 @@
     align-items: center;
 }
 
-.new-button{
-    background-color: #67717c;
+.contents-button-area {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.home-button{
+    background-color: #333;
     color: #fff;
     padding: 10px 20px;
-    margin-left: auto;
-    margin-right: 20px;
+    margin-right: 5px;
     border: none;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
     text-decoration: none;
     transition: background-color 0.3s ease-in-out;
+}
+
+.home-button:hover {
+    background-color: #4e5052;
+}
+
+.like-notification-button{
+    background-color: #333;
+    color: #fff;
+    padding: 11px 20px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.like-notification-button:hover {
+    background-color: #4e5052;
+}
+
+
+.new-button{
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.new-button:hover {
+    background-color: #4e5052;
+}
+
+.search-button{
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.search-button:hover {
+    background-color: #4e5052;
+}
+
+.profile-button{
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.profile-button:hover {
+    background-color: #4e5052;
 }
 
 .logout-button {
@@ -46,10 +131,6 @@
     cursor: pointer;
     text-decoration: none;
     transition: background-color 0.3s ease-in-out;
-}
-
-.new-button:hover {
-    background-color: #4e5052;
 }
 
 .logout-button:hover {
