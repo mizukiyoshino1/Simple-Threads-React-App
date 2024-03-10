@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { Link, useNavigate } from 'react-router-dom';
 import './SignUp.css';
 
@@ -8,6 +8,7 @@ function SignUp() {
     // 入力情報
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [displayName, setDisplayName] = useState('');
 
     // onChange
     const handleChangeEmail = (event) => {
@@ -15,6 +16,9 @@ function SignUp() {
     };
     const handleChangePassword = (event) => {
         setPassword(event.currentTarget.value);
+    };
+    const handleChangeDisplayName = (event) => {
+        setDisplayName(event.currentTarget.value);
     };
 
     // 画面遷移
@@ -28,7 +32,10 @@ function SignUp() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         const auth = getAuth();
-        await createUserWithEmailAndPassword(auth, email, password);
+        await createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                updateProfile(userCredential.user, {displayName: displayName})
+            })
         navigation('/');
     };
 
@@ -37,6 +44,16 @@ function SignUp() {
             <div className="signup-form"> 
                 <h2>SignUp</h2>
                 <form onSubmit={handleSubmit}>
+                    <div className="form-group"> 
+                        <label>ユーザー名</label>
+                        <input
+                            className="form-control" 
+                            name="displayName"
+                            type="text"
+                            placeholder="name"
+                            onChange={(event) => handleChangeDisplayName(event)}
+                        />
+                    </div>
                     <div className="form-group"> 
                         <label>メールアドレス</label>
                         <input
