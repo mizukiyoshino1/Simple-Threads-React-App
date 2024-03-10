@@ -1,15 +1,37 @@
 .message-icon {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin: 10px 50px;
-    background-color: #f9f9f9;
+    background-color: #f8f9fa;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    margin: 10px 20px;
+    box-shadow: 0 0 12px 0px rgba(0, 0, 0, 0.1);
 }
 
-.message-icon .text {
-    margin-top: 5px;
+.message-icon div {
+    margin-bottom: 10px;
 }
 
-.message-icon .text span {
+.message-icon div.text {
     font-weight: bold;
-    color: #333;
+}
+
+.message-icon button {
+    padding: 5px 13px;
+    color: #fff;
+    background-color: rgb(92, 92, 92);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.message-icon button:hover {
+    background-color: rgb(164, 164, 164);
+}
+
+.message-icon button:focus {
+outline: none;
+}
+
+.message-icon button:active {
+    transform: translateY(1px);
 }
