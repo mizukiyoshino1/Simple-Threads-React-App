@@ -7,7 +7,6 @@ const MessageIcon = ({ content }) => {
     // ユーザ情報
     const { user } = useAuthContext();
     const userId = user.uid;
-    const userName = user.displayName;
 
     /**
      * 投稿の削除機能
@@ -24,10 +23,10 @@ const MessageIcon = ({ content }) => {
 
     return (
         <div className="message-icon">
-            <div>ID : <span>{content.id}</span></div>
+            <div className="text"><span>{content.userName}</span></div>
             <div className="text">投稿 : <span>{content.content}</span></div>
             <div className="text">ユーザ: <span>{content.userId}</span></div>
-            <div className="text">ユーザ名: <span>{userName}</span></div>
+            
             {userId === content.userId &&
                 <button type="button" onClick={handleDelete}>Delete</button>
             }

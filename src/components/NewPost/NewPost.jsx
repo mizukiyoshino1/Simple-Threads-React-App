@@ -10,6 +10,7 @@ function NewPost() {
     // ユーザ情報
     const { user } = useAuthContext();
     const userId = user.uid;
+    const userName = user.displayName;
 
     // 入力情報
     const [content, setContent] = useState('');
@@ -32,7 +33,8 @@ function NewPost() {
         try {
             await axios.post('http://localhost:8080/api/add',{
                 content: content,
-                userId: userId
+                userId: userId,
+                userName: userName
             });
         } catch (error) {
             console.error('Error fetching data:', error);
