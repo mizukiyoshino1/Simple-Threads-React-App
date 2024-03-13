@@ -1,34 +1,58 @@
-.profile {
+/* Profileコンポーネントのルート要素のスタイル */
+.profile-container {
     width: 80%;
     max-width: 600px;
     margin: 90px auto;
+}
+
+/* プロフィールのスタイル */
+.profile {
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    text-align: left;
 }
 
+.user-detail {
+    display: flex;
+}
+
+/* プロフィール画像のスタイル */
+.profileImage {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+/* プロフィール名のスタイル */
 .profile h2 {
     font-size: 24px;
     margin-bottom: 10px;
 }
 
+/* メールのスタイル */
 .profile h4 {
     font-size: 16px;
     color: #666;
     margin-bottom: 20px;
 }
 
-.editProfileButton {
-    padding: 5px 10px;
+/* プロフィール編集ボタンのスタイル */
+.profile .editProfileButton {
+    padding: 10px 20px;
     background-color: #007bff;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    transition: background-color 0.3s;
 }
 
-.editProfileButton:hover {
+.profile .editProfileButton:hover {
     background-color: #0056b3;
 }

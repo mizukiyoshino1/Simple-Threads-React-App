@@ -33,8 +33,7 @@ function NewPost() {
         try {
             await axios.post('http://localhost:8080/api/add',{
                 content: content,
-                userId: userId,
-                userName: userName
+                userId: userId
             });
         } catch (error) {
             console.error('Error fetching data:', error);
