@@ -7,6 +7,18 @@
     box-shadow: 0 0 12px 0px rgba(0, 0, 0, 0.1);
 }
 
+.userInf {
+    display: flex;
+}
+
+.users-profile-Img {
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
 .message-icon div {
     margin-bottom: 10px;
 }
