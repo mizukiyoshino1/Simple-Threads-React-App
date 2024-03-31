@@ -27,23 +27,35 @@
     font-weight: bold;
 }
 
-.message-icon button {
-    padding: 5px 13px;
-    color: #fff;
-    background-color: rgb(92, 92, 92);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.message-icon button:hover {
-    background-color: rgb(164, 164, 164);
-}
-
 .message-icon button:focus {
-outline: none;
+    outline: none;
 }
 
 .message-icon button:active {
     transform: translateY(1px);
+}
+
+/* MessageIcon.css */
+.border-area {
+    display: flex;
+    align-items: center;
+}
+
+.like-button,
+.delete-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.like-button svg,
+.delete-button svg {
+    width: 20px;
+    height: 20px;
+    fill: #555;
+    transition: fill 0.3s ease;
+}
+
+.like-count {
+    padding-bottom: 5px;
 }
