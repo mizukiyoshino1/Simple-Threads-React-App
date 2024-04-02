@@ -42,6 +42,7 @@
 }
 
 .like-button,
+.comment-button,
 .delete-button {
     background-color: transparent;
     border: none;
@@ -49,6 +50,7 @@
 }
 
 .like-button svg,
+.comment-button svg,
 .delete-button svg {
     width: 20px;
     height: 20px;

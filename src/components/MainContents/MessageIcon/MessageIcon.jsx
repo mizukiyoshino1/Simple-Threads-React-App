@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './MessageIcon.css';
 import axios from 'axios';
 import { useAuthContext } from '../../../context/AuthContext';
@@ -8,6 +8,10 @@ const MessageIcon = ({ content }) => {
     // ユーザ情報
     const { user } = useAuthContext();
     const userId = user.uid;
+
+    // likeCount, likeFlgをstateとして持つ
+    const [likeCount, setLikeCount] = useState(content.likeCount);
+    const [likeFlg, setLikeFlg] = useState(content.likeFlag)
 
     /**
      * いいね処理
@@ -20,7 +24,8 @@ const MessageIcon = ({ content }) => {
                 reportId: content.id,
                 likeFlag: 1
             })
-            console.log(response.data);
+            console.log(response.data.likesCount);
+            setLikeCount(response.data.likesCount);
         } catch (error) {
             console.error('Error deleting post:', error)
         }
@@ -65,7 +70,12 @@ const MessageIcon = ({ content }) => {
                         <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
                     </svg>
                 </button>
-                {content.likeCount !== 0 && <p className="like-count">{content.likeCount}</p>}
+                {likeCount !== 0 && <p className="like-count">{likeCount}</p>}
+                <button type="button" className="comment-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M16 8c0 3.866-3.582 7-8 7a9.06 9.06 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7zM5 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                    </svg>
+                </button>
                 {userId === content.userId && (
                     <button type="button" onClick={handleDelete} className="delete-button">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">

@@ -21,14 +21,14 @@ function MainContents() {
         const fetchData = async () => {
             try {
                 const response = await axios.post('http://localhost:8080/api/contents',{userId:userId});
-                setContents(response.data); // データを設定する
+                setContents(response.data);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
         };
 
-        fetchData(); // 関数を呼び出す
-    }, []); // 空の配列を依存リストに渡して初期化時にのみ実行するようにする
+        fetchData();
+    }, []);
 
     return (
         <>
