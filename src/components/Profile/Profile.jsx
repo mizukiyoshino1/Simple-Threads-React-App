@@ -43,6 +43,9 @@ const Profile = () => {
         setShowModal(false);
     }
 
+    // コメント情報
+    const [comments, setComments] = useState([]);
+
     // onChange
     const onChangeUserName = (event) => {
         setModalDisplayName(event.target.value);
@@ -73,29 +76,32 @@ const Profile = () => {
      * 
      **/ 
     const handleSaveChanges = async () => {
-        // Firebaseのプロフィール名を更新
-        updateProfile(userCredential, {displayName: modalDisplayName});
+        const confirmUpdateProfile = window.confirm("現在の内容でプロフィールを更新してもよろしいですか？");
+        if (confirmUpdateProfile) {
+            // Firebaseのプロフィール名を更新
+            updateProfile(userCredential, {displayName: modalDisplayName});
 
-        // PostgreSQLのuserName, profileImgUrl,profileTextを更新
-        try {
-            await axios.post('http://localhost:8080/api/useredit',{
-                userId: userId,
-                userName: modalDisplayName,
-                profileImgUrl: modalUserImg,
-                profileText: modalBio,
-            });
-        } catch (error) {
-            console.error('Error fetching data:', error);
+            // PostgreSQLのuserName, profileImgUrl,profileTextを更新
+            try {
+                await axios.post('http://localhost:8080/api/useredit',{
+                    userId: userId,
+                    userName: modalDisplayName,
+                    profileImgUrl: modalUserImg,
+                    profileText: modalBio,
+                });
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+
+            // setDisplayName(modalDisplayName);
+            setUserImg(modalUserImg);
+
+            // モーダルを閉じる
+            setShowModal(false);
+
+            // リロード
+            window.location.reload();
         }
-
-        // setDisplayName(modalDisplayName);
-        setUserImg(modalUserImg);
-
-        // モーダルを閉じる
-        setShowModal(false);
-
-        // リロード
-        window.location.reload();
     };
 
     /**
@@ -106,13 +112,21 @@ const Profile = () => {
         const fetchData = async () => {
             try {
                 // 投稿情報を取得
-                const response = await axios.post('http://localhost:8080/api/getmyreports',{
+                const respReports = await axios.post('http://localhost:8080/api/getmyreports',{
                     userId: userId
                 });
 
                 // 投稿情報をセット
-                if(response.data !== null){
-                    setContents(response.data);
+                if(respReports.data !== null){
+                    setContents(respReports.data);
+                }
+
+                // コメント取得
+                const respComments = await axios.get('http://localhost:8080/api/getcomments');
+
+                // コメント情報をセット
+                if(respComments !== null){
+                    setComments(respComments.data);
                 }
 
                 // ユーザプロフィール情報を取得
@@ -159,14 +173,18 @@ const Profile = () => {
                     
                 </div>
                 {contents.map(content => (
-                    <MessageIcon key={content.id} content={content} />
+                    <MessageIcon 
+                        key={content.id} 
+                        content={content} 
+                        comments={comments.filter(comment => comment.reportId === content.id)}
+                    />
                 ))}
             </div>
             <Modal
                 isOpen={showModal}
                 contentLabel="プロフィールを編集"
                 onRequestClose={handleCloseModal}
-                className="modal"
+                className="userInfo-modal"
                 overlayClassName="overlay"
             >
                 <div className="modal-content">
@@ -207,7 +225,7 @@ const Profile = () => {
                         </div>
                         <button type="button" className="submit-button" onClick={handleSaveChanges}>保存</button>
                     </form>
-                    <button onClick={handleCloseModal} className="close-button">閉じる</button>
+                    <button onClick={handleCloseModal} className="modal-close-button">閉じる</button>
                 </div>
             </Modal>
         </>

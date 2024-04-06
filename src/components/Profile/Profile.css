@@ -8,7 +8,7 @@
 /* プロフィールのスタイル */
 .profile {
     padding: 20px;
-    background-color: #fff;
+    background-color: #e4e5e6;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     align-items: center;
@@ -58,7 +58,7 @@
 }
 
 /* Modal Styles */
-.modal {
+.userInfo-modal {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -123,7 +123,7 @@ label {
 
 
 .submit-button,
-.close-button {
+.modal-close-button {
     padding: 10px 20px;
     margin-top: 20px;
     border: none;
@@ -140,11 +140,11 @@ label {
     background-color: #0056b3;
 }
 
-.close-button {
+.modal-close-button {
     background-color: #dc3545;
     color: #fff;
 }
 
-.close-button:hover {
+.modal-close-button:hover {
     background-color: #c82333;
 }
