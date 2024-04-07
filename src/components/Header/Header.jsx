@@ -48,7 +48,7 @@ const Header = () => {
 
     return (
         <div className="header-container">
-            <Link to="/" className="header-title-link">Threads App</Link>
+            <Link to="/" className="header-title-link">Social Stitch</Link>
             <div className="contents-button-area">
                 <button className="home-button" type="button" onClick={goToHomeScreen}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" viewBox="0 0 16 16">

@@ -168,7 +168,10 @@ const Profile = () => {
                         {userBio}
                     </p>
                     <button className="editProfileButton" onClick={handleOpenModal}>
-                        プロフィールを編集
+                        Edit Profile
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="editProfileIcon" viewBox="0 0 16 16">
+                            <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z"/>
+                        </svg>
                     </button>
                     
                 </div>
@@ -191,7 +194,7 @@ const Profile = () => {
                     <form>
                         <div className="form-group user-top">
                             <div className="user-info">
-                                <label htmlFor="username">ユーザ名</label>
+                                <label htmlFor="username">User Name</label>
                                 <input
                                     type="text"
                                     id="username"
@@ -215,7 +218,7 @@ const Profile = () => {
                             />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="bio">自己紹介</label>
+                            <label htmlFor="bio">About Me</label>
                             <textarea
                                 id="bio"
                                 value={modalBio}
@@ -223,9 +226,9 @@ const Profile = () => {
                                 className="input-field"
                             ></textarea>
                         </div>
-                        <button type="button" className="submit-button" onClick={handleSaveChanges}>保存</button>
+                        <button type="button" className="submit-button" onClick={handleSaveChanges}>SAVE</button>
                     </form>
-                    <button onClick={handleCloseModal} className="modal-close-button">閉じる</button>
+                    <button onClick={handleCloseModal} className="modal-close-button">CLOSE</button>
                 </div>
             </Modal>
         </>

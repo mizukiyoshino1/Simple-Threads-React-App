@@ -116,6 +116,19 @@
     background-color: #0056b3;
 }
 
+.send-button {
+    text-align: center;
+}
+
+.send-icon{
+    margin-left: 5px;
+    margin-bottom: -1px;
+}
+
+.close-icon {
+    margin-left: 5px;
+}
+
 .overlay {
     position: fixed;
     top: 0;
