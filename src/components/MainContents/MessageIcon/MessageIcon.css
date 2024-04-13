@@ -16,6 +16,11 @@
     max-height: 0;
 }
 
+.content-text {
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
 .userInf {
     display: flex;
 }

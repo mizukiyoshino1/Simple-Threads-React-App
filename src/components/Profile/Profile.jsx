@@ -164,7 +164,7 @@ const Profile = () => {
                             <h4>{email}</h4>
                         </div>
                     </div>
-                    <p>
+                    <p className="userBio-text">
                         {userBio}
                     </p>
                     <button className="editProfileButton" onClick={handleOpenModal}>

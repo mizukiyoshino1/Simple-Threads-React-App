@@ -19,6 +19,11 @@
     display: flex;
 }
 
+.userBio-text {
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
 /* プロフィール画像のスタイル */
 .profileImage {
     width: 100px;
