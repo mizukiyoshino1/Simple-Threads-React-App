@@ -1,3 +1,56 @@
 .like-notification{
     margin-top: 90px;
 }
+
+.users-profile-Img {
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.notification-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.3s ease;
+}
+
+.notification-item:hover {
+    background-color: #f9f9f9;
+}
+
+.notification-item img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.notification-item .notification-content {
+    flex: 1;
+}
+
+.notification-item h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+.notification-item p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.notification-item p.content {
+    font-size: 14px;
+}
+
+.notification-item p.date {
+    font-size: 12px;
+    color: #999;
+}
