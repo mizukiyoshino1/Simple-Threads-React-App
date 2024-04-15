@@ -16,7 +16,7 @@
     max-height: 0;
 }
 
-.content-text {
+.content-text,.comment-text {
     white-space: pre-wrap;
     word-break: break-all;
 }

@@ -1,10 +1,11 @@
 .new-post-container {
     max-width: 500px;
-    margin: 90px auto;
+    margin: 190px auto;
     padding: 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
+    background-color: #dddada;
+    border: 1px solid rgb(227, 224, 224);
     border-radius: 5px;
+    box-shadow: 0 0 30px 0px rgba(0, 0, 0, 0.1);
 }
 
 .new-post-container h2 {
