@@ -5,6 +5,10 @@
     height: 100vh;
 }
 
+.error-message {
+    color: red;
+}
+
 .signup-form {
     max-width: 400px;
     width: 100%;

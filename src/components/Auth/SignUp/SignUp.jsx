@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { Link, useNavigate } from 'react-router-dom';
+import { validateRequired, validateEmail, validatePassword } from '../../../common/Validation';
 import './SignUp.css';
 import axios from 'axios';
 
@@ -10,6 +11,9 @@ function SignUp() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [displayName, setDisplayName] = useState('');
+
+    // エラーメッセージ
+    const [errors, setErrors] = useState({});
 
     // onChange
     const handleChangeEmail = (event) => {
@@ -32,25 +36,62 @@ function SignUp() {
      */
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const auth = getAuth();
-        const user = await createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                // Firebaseにユーザーのプロフィール情報を登録
-                updateProfile(userCredential.user, {displayName: displayName});
 
-                // PostgreSQLにユーザIdとユーザ名を登録
-                axios.post('http://localhost:8080/api/adduser',{
-                    userId: userCredential.user.uid,
-                    userName: displayName
+        // 入力チェック
+        const validationErrors = {
+            ...validateRequired(displayName, 'ユーザ名'),
+            ...validateEmail(email),
+            ...validatePassword(password),
+        };
+
+        // エラーメッセージが存在するか確認
+        if(Object.keys(validationErrors).length === 0) {
+            const auth = getAuth();
+            const user = await createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    // Firebaseにユーザーのプロフィール情報を登録
+                    updateProfile(userCredential.user, {displayName: displayName});
+
+                    // PostgreSQLにユーザIdとユーザ名を登録
+                    axios.post('http://localhost:8080/api/adduser',{
+                        userId: userCredential.user.uid,
+                        userName: displayName
+                    });
+
+                    // ホーム画面へ遷移
+                    navigation('/');
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+
+                    // メールアドレスの重複エラー
+                    if (errorCode === 'auth/email-already-in-use') {
+                        return setErrors({ emailError: 'このメールアドレスは既に使用されています' });
+                    } 
+                    // パスワードのセキュリティエラー
+                    else if (errorCode === 'auth/weak-password') {
+                        return setErrors({ passwordError: 'パスワードが弱すぎます' });
+                    } 
+                    // その他のエラー
+                    else {
+                        setErrors({ otherRrror: 'システムでエラーが発生しました。運営会社に問い合わせてください。'});
+                    }
                 });
-            })
-        navigation('/');
+        } else {
+            setErrors(validationErrors);
+        }
     };
 
     return(
         <div className="user-access-container">
             <div className="signup-form"> 
                 <h2>SignUp</h2>
+                <div className="error-message">
+                    {errors.requiredError && <p className="error-message">{errors.requiredError}</p>}
+                    {errors.emailError && <p className="error-message">{errors.emailError}</p>}
+                    {errors.passwordError && <p className="error-message">{errors.passwordError}</p>}
+                    {errors.otherRrror && <p className="error-message">{errors.otherRrror}</p>}
+                </div>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group"> 
                         <label>ユーザー名</label>

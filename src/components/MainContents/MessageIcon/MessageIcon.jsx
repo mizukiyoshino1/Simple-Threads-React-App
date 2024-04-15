@@ -2,10 +2,14 @@ import React, { useState, useEffect } from 'react';
 import './MessageIcon.css';
 import axios from 'axios';
 import { useAuthContext } from '../../../context/AuthContext';
+import { validateRequired } from '../../../common/Validation'
 import defaultImage from '../../../assets/img/default-profile-Img.png';
 import Modal from 'react-modal';
 
 const MessageIcon = ({ content, comments }) => {
+    // エラーメッセージ
+    const [errors, setErrors] = useState({});
+
     // ユーザ情報
     const { user } = useAuthContext();
     const userId = user.uid;
@@ -57,19 +61,31 @@ const MessageIcon = ({ content, comments }) => {
      * 
      */
     const handleSendComment = async () => {
-        try {
-            // コメント送信のAPIを呼び出す
-            await axios.post('http://localhost:8080/api/comment', {
-                userId: userId,
-                reportId: content.id,
-                commentText: commentText
-            });
 
-            // モーダルを閉じる
-            handleCloseModal();
-        } catch (error) {
-            console.error('Error sending comment:', error)
+        // 入力チェック
+        const validationErrors = {
+            ...validateRequired(commentText, 'コメント'),
+        };
+
+        // エラーメッセージが存在するか確認
+        if(Object.keys(validationErrors).length === 0) {
+            try {
+                // コメント送信のAPIを呼び出す
+                await axios.post('http://localhost:8080/api/comment', {
+                    userId: userId,
+                    reportId: content.id,
+                    commentText: commentText
+                });
+    
+                // モーダルを閉じる
+                handleCloseModal();
+            } catch (error) {
+                console.error('Error sending comment:', error)
+            }
+        } else {
+            setErrors(validationErrors);
         }
+        
     }
 
     /**
@@ -146,6 +162,7 @@ const MessageIcon = ({ content, comments }) => {
             >
                 <div>
                     <h2>Comment</h2>
+                    {errors.requiredError && <p className="error-message">{errors.requiredError}</p>}
                     <textarea className="comment-area" value={commentText} onChange={(e) => setCommentText(e.target.value)} />
                     <button onClick={handleSendComment} className="send-button">
                         SEND
