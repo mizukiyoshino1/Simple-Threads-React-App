@@ -35,7 +35,7 @@ export const validateEmail = (email) => {
     } 
     
     // メールアドレス形式チェック
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]+$/;
     if (!emailRegex.test(email)) {
         errors.emailError = '有効なメールアドレスを入力してください';
         return errors;
@@ -67,3 +67,25 @@ export const validatePassword = (password) => {
 
     return errors;
 };
+
+/**
+ * セキュリティチェック
+ * 
+ * @param {*} args 入力文字列
+ * @returns {Object} errors エラーメッセージ
+ */
+export const validateSecurity = (args) => {
+    const errors = {};
+
+    // XSS攻撃対策チェック
+    if (/(<\s*script\s*>|<\s*\/\s*script\s*>)/i.test(args)) {
+        errors.securityError = '無効な文字が含まれています';
+    }
+
+    // SQLインジェクション対策チェック
+    if (/[;'"`]/.test(args)) {
+        errors.securityError = '無効な文字が含まれています';
+    }
+
+    return errors;
+}

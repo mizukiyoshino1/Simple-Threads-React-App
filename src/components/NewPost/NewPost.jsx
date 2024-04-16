@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { validateRequired } from '../../common/Validation'
+import { validateRequired, validateSecurity } from '../../common/Validation'
 import './NewPost.css';
 import Header from '../Header/Header';
 import { useAuthContext } from '../../context/AuthContext';
@@ -37,6 +37,7 @@ function NewPost() {
         // 入力チェック
         const validationErrors = {
             ...validateRequired(content, '投稿内容'),
+            ...validateSecurity(content)
         };
 
         // エラーメッセージが存在するか確認
@@ -73,6 +74,7 @@ function NewPost() {
                 <h2>New Post</h2>
                 <div className="error-message">
                     {errors.requiredError && <p className="error-message">{errors.requiredError}</p>}
+                    {errors.securityError && <p className="error-message">{errors.securityError}</p>}
                 </div>
                 <form onSubmit={onSubmit}>
                     <label>content</label>

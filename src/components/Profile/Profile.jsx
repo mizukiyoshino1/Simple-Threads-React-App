@@ -5,10 +5,14 @@ import Header from '../Header/Header';
 import MessageIcon from '../MainContents/MessageIcon/MessageIcon';
 import { useAuthContext } from '../../context/AuthContext';
 import { getAuth, updateProfile } from "firebase/auth";
+import { validateRequired, validateSecurity } from '../../common/Validation';
 import defaultImage from '../../assets/img/default-profile-Img.png';
 import Modal from 'react-modal';
 
 const Profile = () => {
+    // エラーメッセージ
+    const [errors, setErrors] = useState({});
+
     // 投稿情報
     const [contents, setContents] = useState([]);
 
@@ -76,32 +80,46 @@ const Profile = () => {
      * 
      **/ 
     const handleSaveChanges = async () => {
-        const confirmUpdateProfile = window.confirm("現在の内容でプロフィールを更新してもよろしいですか？");
-        if (confirmUpdateProfile) {
-            // Firebaseのプロフィール名を更新
-            updateProfile(userCredential, {displayName: modalDisplayName});
+        // 入力チェック
+        const validationErrors = {
+            ...validateRequired(modalDisplayName, 'ユーザ名'),
+            ...validateSecurity(modalDisplayName),
+            ...validateSecurity(modalBio),
+        };
 
-            // PostgreSQLのuserName, profileImgUrl,profileTextを更新
-            try {
-                await axios.post('http://localhost:8080/api/useredit',{
-                    userId: userId,
-                    userName: modalDisplayName,
-                    profileImgUrl: modalUserImg,
-                    profileText: modalBio,
-                });
-            } catch (error) {
-                console.error('Error fetching data:', error);
+        // エラーメッセージが存在するか確認
+        if(Object.keys(validationErrors).length === 0) {
+            const confirmUpdateProfile = window.confirm("現在の内容でプロフィールを更新してもよろしいですか？");
+            if (confirmUpdateProfile) {
+                // Firebaseのプロフィール名を更新
+                updateProfile(userCredential, {displayName: modalDisplayName});
+
+                // PostgreSQLのuserName, profileImgUrl,profileTextを更新
+                try {
+                    await axios.post('http://localhost:8080/api/useredit',{
+                        userId: userId,
+                        userName: modalDisplayName,
+                        profileImgUrl: modalUserImg,
+                        profileText: modalBio,
+                    });
+                } catch (error) {
+                    console.error('Error fetching data:', error);
+                }
+
+                // setDisplayName(modalDisplayName);
+                setUserImg(modalUserImg);
+
+                // モーダルを閉じる
+                setShowModal(false);
+
+                // リロード
+                window.location.reload();
             }
-
-            // setDisplayName(modalDisplayName);
-            setUserImg(modalUserImg);
-
-            // モーダルを閉じる
-            setShowModal(false);
-
-            // リロード
-            window.location.reload();
+        } else {
+            setErrors(validationErrors);
         }
+
+        
     };
 
     /**
@@ -194,6 +212,8 @@ const Profile = () => {
                     <form>
                         <div className="form-group user-top">
                             <div className="user-info">
+                                {errors.requiredError && <p className="error-message">{errors.requiredError}</p>}
+                                {errors.securityError && <p className="error-message">{errors.securityError}</p>}
                                 <label htmlFor="username">User Name</label>
                                 <input
                                     type="text"

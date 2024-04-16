@@ -74,7 +74,7 @@ function SignUp() {
                     } 
                     // その他のエラー
                     else {
-                        setErrors({ otherRrror: 'システムでエラーが発生しました。運営会社に問い合わせてください。'});
+                        setErrors({ otherRrror: 'システムでエラーが発生しました。正しい情報を入力してください。'});
                     }
                 });
         } else {

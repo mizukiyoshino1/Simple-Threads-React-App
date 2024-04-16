@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './MessageIcon.css';
 import axios from 'axios';
 import { useAuthContext } from '../../../context/AuthContext';
-import { validateRequired } from '../../../common/Validation'
+import { validateRequired, validateSecurity } from '../../../common/Validation'
 import defaultImage from '../../../assets/img/default-profile-Img.png';
 import Modal from 'react-modal';
 
@@ -65,6 +65,7 @@ const MessageIcon = ({ content, comments }) => {
         // 入力チェック
         const validationErrors = {
             ...validateRequired(commentText, 'コメント'),
+            ...validateSecurity(commentText)
         };
 
         // エラーメッセージが存在するか確認
@@ -163,6 +164,7 @@ const MessageIcon = ({ content, comments }) => {
                 <div>
                     <h2>Comment</h2>
                     {errors.requiredError && <p className="error-message">{errors.requiredError}</p>}
+                    {errors.securityError && <p className="error-message">{errors.securityError}</p>}
                     <textarea className="comment-area" value={commentText} onChange={(e) => setCommentText(e.target.value)} />
                     <button onClick={handleSendComment} className="send-button">
                         SEND
