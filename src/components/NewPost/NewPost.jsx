@@ -8,6 +8,9 @@ import { useAuthContext } from '../../context/AuthContext';
 
 function NewPost() {
 
+    // URL
+    const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+
     // ユーザ情報
     const { user } = useAuthContext();
     const userId = user.uid;
@@ -43,7 +46,7 @@ function NewPost() {
         // エラーメッセージが存在するか確認
         if(Object.keys(validationErrors).length === 0) {
             try {
-                await axios.post('http://localhost:8080/api/add',{
+                await axios.post(`${BACKEND_URL}/api/add`,{
                     content: content,
                     userId: userId
                 });

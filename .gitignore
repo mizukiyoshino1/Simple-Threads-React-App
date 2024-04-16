@@ -24,3 +24,12 @@ yarn-error.log*
 
 # Firebase
 firebase.js
+
+# .env
+.env
+
+# 開発環境用環境変数
+.env.development
+
+# 本番環境用環境変数
+.env.production

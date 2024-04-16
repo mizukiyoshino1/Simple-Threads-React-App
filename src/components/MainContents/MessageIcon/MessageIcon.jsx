@@ -7,6 +7,9 @@ import defaultImage from '../../../assets/img/default-profile-Img.png';
 import Modal from 'react-modal';
 
 const MessageIcon = ({ content, comments }) => {
+    // URL
+    const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+
     // エラーメッセージ
     const [errors, setErrors] = useState({});
 
@@ -45,7 +48,7 @@ const MessageIcon = ({ content, comments }) => {
      */
     const handleLike = async () => {
         try {
-            const response = await axios.post('http://localhost:8080/api/like', {
+            const response = await axios.post(`${BACKEND_URL}/api/like`, {
                 userId: userId,
                 reportId: content.id
             })
@@ -72,7 +75,7 @@ const MessageIcon = ({ content, comments }) => {
         if(Object.keys(validationErrors).length === 0) {
             try {
                 // コメント送信のAPIを呼び出す
-                await axios.post('http://localhost:8080/api/comment', {
+                await axios.post(`${BACKEND_URL}/api/comment`, {
                     userId: userId,
                     reportId: content.id,
                     commentText: commentText
@@ -97,7 +100,7 @@ const MessageIcon = ({ content, comments }) => {
         const confirmDelete = window.confirm("本当にこの投稿を削除しますか？");
         if (confirmDelete) {
             try {
-                await axios.delete(`http://localhost:8080/api/delete/${content.id}`);
+                await axios.delete(`${BACKEND_URL}/api/delete/${content.id}`);
                 window.location.reload();
             } catch (error) {
                 console.error('Error deleting post:', error);

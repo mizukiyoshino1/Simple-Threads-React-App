@@ -7,6 +7,9 @@ import defaultImage from '../../assets/img/default-profile-Img.png';
 
 const LikeNotification = () => {
 
+    // URL
+    const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+
     // ユーザ情報
     const { user } = useAuthContext();
     const userId = user.uid;
@@ -22,7 +25,7 @@ const LikeNotification = () => {
         const fetchData = async () => {
             try {
                 // レポート取得
-                const respReports = await axios.post('http://localhost:8080/api/notifications',{userId:userId});
+                const respReports = await axios.post(`${BACKEND_URL}/api/notifications`,{userId:userId});
                 setNotifications(respReports.data);
             } catch (error) {
                 console.error('Error fetching data:', error);

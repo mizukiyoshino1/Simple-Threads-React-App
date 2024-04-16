@@ -10,6 +10,9 @@ import defaultImage from '../../assets/img/default-profile-Img.png';
 import Modal from 'react-modal';
 
 const Profile = () => {
+    // URL
+    const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+
     // エラーメッセージ
     const [errors, setErrors] = useState({});
 
@@ -96,7 +99,7 @@ const Profile = () => {
 
                 // PostgreSQLのuserName, profileImgUrl,profileTextを更新
                 try {
-                    await axios.post('http://localhost:8080/api/useredit',{
+                    await axios.post(`${BACKEND_URL}/api/useredit`,{
                         userId: userId,
                         userName: modalDisplayName,
                         profileImgUrl: modalUserImg,
@@ -130,7 +133,7 @@ const Profile = () => {
         const fetchData = async () => {
             try {
                 // 投稿情報を取得
-                const respReports = await axios.post('http://localhost:8080/api/getmyreports',{
+                const respReports = await axios.post(`${BACKEND_URL}/api/getmyreports`,{
                     userId: userId
                 });
 
@@ -140,7 +143,7 @@ const Profile = () => {
                 }
 
                 // コメント取得
-                const respComments = await axios.get('http://localhost:8080/api/getcomments');
+                const respComments = await axios.get(`${BACKEND_URL}/api/getcomments`);
 
                 // コメント情報をセット
                 if(respComments !== null){
@@ -148,7 +151,7 @@ const Profile = () => {
                 }
 
                 // ユーザプロフィール情報を取得
-                const userInfo = await axios.post('http://localhost:8080/api/userinfo',{
+                const userInfo = await axios.post(`${BACKEND_URL}/api/userinfo`,{
                     userId: userId
                 });
 

@@ -7,6 +7,9 @@ import axios from 'axios';
 
 function SignUp() {
 
+    // URL
+    const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+
     // 入力情報
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -53,7 +56,7 @@ function SignUp() {
                     updateProfile(userCredential.user, {displayName: displayName});
 
                     // PostgreSQLにユーザIdとユーザ名を登録
-                    axios.post('http://localhost:8080/api/adduser',{
+                    axios.post(`${BACKEND_URL}/api/adduser`,{
                         userId: userCredential.user.uid,
                         userName: displayName
                     });

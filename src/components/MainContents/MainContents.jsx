@@ -6,6 +6,9 @@ import MessageIcon from './MessageIcon/MessageIcon';
 import { useAuthContext } from '../../context/AuthContext';
 
 function MainContents() {
+    // URL
+    const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+
     // 投稿情報
     const [contents, setContents] = useState([]);
 
@@ -24,11 +27,11 @@ function MainContents() {
         const fetchData = async () => {
             try {
                 // レポート取得
-                const respReports = await axios.post('http://localhost:8080/api/contents',{userId:userId});
+                const respReports = await axios.post(`${BACKEND_URL}/api/contents`,{userId:userId});
                 setContents(respReports.data);
 
                 // コメント取得
-                const respComments = await axios.get('http://localhost:8080/api/getcomments');
+                const respComments = await axios.get(`${BACKEND_URL}/api/getcomments`);
                 setComments(respComments.data);
             } catch (error) {
                 console.error('Error fetching data:', error);
