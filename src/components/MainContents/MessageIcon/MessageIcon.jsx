@@ -52,7 +52,6 @@ const MessageIcon = ({ content, comments }) => {
                 userId: userId,
                 reportId: content.id
             })
-            console.log(response.data.likesCount);
             setLikeCount(response.data.likesCount);
         } catch (error) {
             console.error('Error deleting post:', error)

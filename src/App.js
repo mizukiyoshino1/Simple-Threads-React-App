@@ -12,7 +12,6 @@ import { useAuthContext } from './context/AuthContext';
 function App() {
   // ログイン情報
   const { user } = useAuthContext();
-  console.log(user);
 
   return (
     <Routes>

@@ -1,0 +1,26 @@
+"filename", "language", "JavaScript React", "JavaScript", "CSS", "comment", "blank", "total"
+"/Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/App.css", "CSS", 0, 0, 0, 0, 1, 1
+"/Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/App.js", "JavaScript", 0, 26, 0, 1, 4, 31
+"/Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/common/Validation.js", "JavaScript", 0, 43, 0, 32, 16, 91
+"/Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/components/Auth/Login/Login.css", "CSS", 0, 0, 57, 0, 10, 67
+"/Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/components/Auth/Login/Login.jsx", "JavaScript React", 94, 0, 0, 16, 13, 123
+"/Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/components/Auth/SignUp/SignUp.css", "CSS", 0, 0, 60, 0, 12, 72
+"/Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/components/Auth/SignUp/SignUp.jsx", "JavaScript React", 109, 0, 0, 18, 14, 141
+"/Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/components/Header/Header.css", "CSS", 0, 0, 121, 0, 18, 139
+"/Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/components/Header/Header.jsx", "JavaScript React", 65, 0, 0, 10, 11, 86
+"/Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/components/LikeNotification/LikeNotification.css", "CSS", 0, 0, 47, 0, 10, 57
+"/Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/components/LikeNotification/LikeNotification.jsx", "JavaScript React", 55, 0, 0, 8, 9, 72
+"/Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/components/MainContents/MainContents.css", "CSS", 0, 0, 6, 0, 2, 8
+"/Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/components/MainContents/MainContents.jsx", "JavaScript React", 41, 0, 0, 10, 10, 61
+"/Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/components/MainContents/MessageIcon/MessageIcon.css", "CSS", 0, 0, 147, 1, 26, 174
+"/Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/components/MainContents/MessageIcon/MessageIcon.jsx", "JavaScript React", 167, 0, 0, 25, 24, 216
+"/Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/components/NewPost/NewPost.css", "CSS", 0, 0, 37, 0, 6, 43
+"/Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/components/NewPost/NewPost.jsx", "JavaScript React", 61, 0, 0, 17, 16, 94
+"/Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/components/Profile/Profile.css", "CSS", 0, 0, 129, 7, 26, 162
+"/Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/components/Profile/Profile.jsx", "JavaScript React", 171, 0, 0, 61, 29, 261
+"/Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/components/Search/Search.css", "CSS", 0, 0, 3, 0, 0, 3
+"/Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/components/Search/Search.jsx", "JavaScript React", 14, 0, 0, 0, 3, 17
+"/Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/context/AuthContext.js", "JavaScript", 0, 26, 0, 28, 8, 62
+"/Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/index.css", "CSS", 0, 0, 12, 0, 2, 14
+"/Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/index.js", "JavaScript", 0, 17, 0, 0, 2, 19
+"Total", "-", 777, 112, 619, 234, 272, 2014

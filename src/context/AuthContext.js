@@ -41,7 +41,6 @@ export function AuthProvider({ children }) {
         const auth = getAuth();
         // サインイン、サインアウトが行われる毎に実行する
         const unsubscribed = onAuthStateChanged(auth, (user) => {
-            console.log(user);
             setUser(user);
             setLoading(false);//ローディング状態解除
         });

@@ -1,0 +1,65 @@
+Date : 2024-04-17 15:14:20
+Directory : /Users/mizukiyoshino/Documents/SimpleThreads/app_react/src
+Total : 24 files,  1508 codes, 234 comments, 272 blanks, all 2014 lines
+
+Languages
++------------------+------------+------------+------------+------------+------------+
+| language         | files      | code       | comment    | blank      | total      |
++------------------+------------+------------+------------+------------+------------+
+| JavaScript React |          9 |        777 |        165 |        129 |      1,071 |
+| CSS              |         11 |        619 |          8 |        113 |        740 |
+| JavaScript       |          4 |        112 |         61 |         30 |        203 |
++------------------+------------+------------+------------+------------+------------+
+
+Directories
++----------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                           | files      | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                              |         24 |      1,508 |        234 |        272 |      2,014 |
+| . (Files)                                                                                                      |          4 |         55 |          1 |          9 |         65 |
+| common                                                                                                         |          1 |         43 |         32 |         16 |         91 |
+| components                                                                                                     |         18 |      1,384 |        173 |        239 |      1,796 |
+| components/Auth                                                                                                |          4 |        320 |         34 |         49 |        403 |
+| components/Auth/Login                                                                                          |          2 |        151 |         16 |         23 |        190 |
+| components/Auth/SignUp                                                                                         |          2 |        169 |         18 |         26 |        213 |
+| components/Header                                                                                              |          2 |        186 |         10 |         29 |        225 |
+| components/LikeNotification                                                                                    |          2 |        102 |          8 |         19 |        129 |
+| components/MainContents                                                                                        |          4 |        361 |         36 |         62 |        459 |
+| components/MainContents (Files)                                                                                |          2 |         47 |         10 |         12 |         69 |
+| components/MainContents/MessageIcon                                                                            |          2 |        314 |         26 |         50 |        390 |
+| components/NewPost                                                                                             |          2 |         98 |         17 |         22 |        137 |
+| components/Profile                                                                                             |          2 |        300 |         68 |         55 |        423 |
+| components/Search                                                                                              |          2 |         17 |          0 |          3 |         20 |
+| context                                                                                                        |          1 |         26 |         28 |          8 |         62 |
++----------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++----------------------------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| filename                                                                                                       | language         | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
+| /Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/App.css                                             | CSS              |          0 |          0 |          1 |          1 |
+| /Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/App.js                                              | JavaScript       |         26 |          1 |          4 |         31 |
+| /Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/common/Validation.js                                | JavaScript       |         43 |         32 |         16 |         91 |
+| /Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/components/Auth/Login/Login.css                     | CSS              |         57 |          0 |         10 |         67 |
+| /Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/components/Auth/Login/Login.jsx                     | JavaScript React |         94 |         16 |         13 |        123 |
+| /Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/components/Auth/SignUp/SignUp.css                   | CSS              |         60 |          0 |         12 |         72 |
+| /Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/components/Auth/SignUp/SignUp.jsx                   | JavaScript React |        109 |         18 |         14 |        141 |
+| /Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/components/Header/Header.css                        | CSS              |        121 |          0 |         18 |        139 |
+| /Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/components/Header/Header.jsx                        | JavaScript React |         65 |         10 |         11 |         86 |
+| /Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/components/LikeNotification/LikeNotification.css    | CSS              |         47 |          0 |         10 |         57 |
+| /Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/components/LikeNotification/LikeNotification.jsx    | JavaScript React |         55 |          8 |          9 |         72 |
+| /Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/components/MainContents/MainContents.css            | CSS              |          6 |          0 |          2 |          8 |
+| /Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/components/MainContents/MainContents.jsx            | JavaScript React |         41 |         10 |         10 |         61 |
+| /Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/components/MainContents/MessageIcon/MessageIcon.css | CSS              |        147 |          1 |         26 |        174 |
+| /Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/components/MainContents/MessageIcon/MessageIcon.jsx | JavaScript React |        167 |         25 |         24 |        216 |
+| /Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/components/NewPost/NewPost.css                      | CSS              |         37 |          0 |          6 |         43 |
+| /Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/components/NewPost/NewPost.jsx                      | JavaScript React |         61 |         17 |         16 |         94 |
+| /Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/components/Profile/Profile.css                      | CSS              |        129 |          7 |         26 |        162 |
+| /Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/components/Profile/Profile.jsx                      | JavaScript React |        171 |         61 |         29 |        261 |
+| /Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/components/Search/Search.css                        | CSS              |          3 |          0 |          0 |          3 |
+| /Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/components/Search/Search.jsx                        | JavaScript React |         14 |          0 |          3 |         17 |
+| /Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/context/AuthContext.js                              | JavaScript       |         26 |         28 |          8 |         62 |
+| /Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/index.css                                           | CSS              |         12 |          0 |          2 |         14 |
+| /Users/mizukiyoshino/Documents/SimpleThreads/app_react/src/index.js                                            | JavaScript       |         17 |          0 |          2 |         19 |
+| Total                                                                                                          |                  |      1,508 |        234 |        272 |      2,014 |
++----------------------------------------------------------------------------------------------------------------+------------------+------------+------------+------------+------------+
