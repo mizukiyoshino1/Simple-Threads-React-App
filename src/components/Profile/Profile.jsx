@@ -6,6 +6,8 @@ import MessageIcon from '../MainContents/MessageIcon/MessageIcon';
 import { useAuthContext } from '../../context/AuthContext';
 import { getAuth, updateProfile } from "firebase/auth";
 import { validateRequired, validateSecurity } from '../../common/Validation';
+import { storage } from '../../firebase';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import defaultImage from '../../assets/img/default-profile-Img.png';
 import Modal from 'react-modal';
 
@@ -63,17 +65,26 @@ const Profile = () => {
 
     /**
      *  モーダル内でのプロフィール画像変更処理
+     *  Firebase Storageへアップロード
      * 
      * 
      **/
-    const handleImageChange = (event) => {
+    const handleImageChange = async (event) => {
         const file = event.target.files[0];
-        const reader = new FileReader();
-        reader.onloadend = () => {
-            setModalUserImg(reader.result);
-        };
-        if (file) {
-            reader.readAsDataURL(file);
+        if(file){
+            // Firebase Storageへ参照パスを設定
+            const storageRef = ref(storage, 'profileImages/' + userId);
+
+            try {
+                // ファイルをFirebase Storageにアップロード
+                const uploadResult = await uploadBytes(storageRef, file);
+                // アップロード後のURLを取得
+                const photoURL = await getDownloadURL(uploadResult.ref);
+
+                setModalUserImg(photoURL);
+            } catch (error) {
+                console.error('Error uploading image: ', error);
+            }
         }
     };
 
@@ -93,6 +104,7 @@ const Profile = () => {
         // エラーメッセージが存在するか確認
         if(Object.keys(validationErrors).length === 0) {
             const confirmUpdateProfile = window.confirm("現在の内容でプロフィールを更新してもよろしいですか？");
+            
             if (confirmUpdateProfile) {
                 // Firebaseのプロフィール名を更新
                 updateProfile(userCredential, {displayName: modalDisplayName});
