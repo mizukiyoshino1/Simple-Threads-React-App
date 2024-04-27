@@ -36,30 +36,32 @@ function NewPost() {
      */
     const onSubmit = async (e) => {
         e.preventDefault();
-
-        // 入力チェック
-        const validationErrors = {
-            ...validateRequired(content, '投稿内容'),
-            ...validateSecurity(content)
-        };
-
-        // エラーメッセージが存在するか確認
-        if(Object.keys(validationErrors).length === 0) {
-            try {
-                await axios.post(`${BACKEND_URL}/api/add`,{
-                    content: content,
-                    userId: userId
-                });
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            }
-            // Top画面に画面遷移
-            navigation('/');
-        } else {
-            setErrors(validationErrors);
-        }
-
         
+        const confirmPost = window.confirm("この内容で投稿してもよろしいですか？");
+
+        if(confirmPost){
+            // 入力チェック
+            const validationErrors = {
+                ...validateRequired(content, '投稿内容'),
+                ...validateSecurity(content)
+            };
+
+            // エラーメッセージが存在するか確認
+            if(Object.keys(validationErrors).length === 0) {
+                try {
+                    await axios.post(`${BACKEND_URL}/api/add`,{
+                        content: content,
+                        userId: userId
+                    });
+                } catch (error) {
+                    console.error('Error fetching data:', error);
+                }
+                // Top画面に画面遷移
+                navigation('/');
+            } else {
+                setErrors(validationErrors);
+            }
+        }
     }
 
     /**
