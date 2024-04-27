@@ -3,6 +3,9 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-image: url('../../../assets/img/signup.jpg'); /* ここに背景画像のURLを指定 */
+    background-size: cover;
+    background-position: center;
 }
 
 .error-message {
@@ -10,6 +13,8 @@
 }
 
 .signup-form {
+    background: rgba(255, 255, 255);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* ソフトなシャドウを追加 */
     max-width: 400px;
     width: 100%;
     padding: 20px;
