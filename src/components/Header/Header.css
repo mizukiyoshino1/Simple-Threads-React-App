@@ -51,6 +51,11 @@
     background-color: #4e5052;
 }
 
+.home-button-svg {
+    width: 25px;
+    height: 25px;
+}
+
 .like-notification-button{
     background-color: #333;
     color: #fff;
@@ -66,6 +71,11 @@
 
 .like-notification-button:hover {
     background-color: #4e5052;
+}
+
+.like-notification-button-svg {
+    width: 22px;
+    height: 22px;
 }
 
 
@@ -86,6 +96,11 @@
     background-color: #4e5052;
 }
 
+.new-button-svg {
+    width: 25px;
+    height: 25px;
+}
+
 .search-button{
     background-color: #333;
     color: #fff;
@@ -101,6 +116,11 @@
 
 .search-button:hover {
     background-color: #4e5052;
+}
+
+.search-button-svg {
+    width: 25px;
+    height: 25px;
 }
 
 .profile-button{
@@ -135,4 +155,50 @@
 
 .logout-button:hover {
     background-color: #4e5052;
+}
+
+.profile-button-svg {
+    width: 25px;
+    height: 25px;
+}
+
+/* メディアクエリ: 画面の幅が768ピクセル以下の場合に適用 */
+@media (max-width: 568px) {
+    .header-container {
+        padding: 10px; /* コンテナのパディングを縮小 */
+        height: 45px;
+    }
+
+    .header-title-link {
+        font-size: 15px; /* タイトルのフォントサイズを縮小 */
+    }
+
+    .contents-button-area {
+        margin-right: auto;
+
+    }
+
+    /* ボタン共通スタイルの調整 */
+    .home-button, .like-notification-button, .new-button, .search-button, .profile-button {
+        padding: 4px 10px; /* ボタンのパディングを縮小 */
+        font-size: 14px; /* フォントサイズを縮小 */
+    }
+
+    /* ログアウトボタン */
+    .logout-button {
+        padding: 10px 10px;
+        margin-right: 10px;
+        font-size: 12px;
+    }
+
+    /* SVGアイコンのサイズ調整 */
+    .home-button-svg, .like-notification-button-svg, .new-button-svg, .search-button-svg, .profile-button-svg {
+        width: 15px; /* アイコンの幅を縮小 */
+        height: 15px; /* アイコンの高さを縮小 */
+    }
+
+    /* ボタン間の余白調整 */
+    .contents-button-area > button {
+        margin-right: 3px; /* ボタン間の右マージンを縮小 */
+    }
 }

@@ -44,3 +44,15 @@
 .search-area-button:hover {
     background-color: #626263;
 }
+
+/* メディアクエリ: 画面の幅が768ピクセル以下の場合に適用 */
+@media (max-width: 568px) {
+
+    .search-container  {
+        margin-top: 90px;
+    }
+
+    .search-input {
+        padding: 10px;
+    }
+}

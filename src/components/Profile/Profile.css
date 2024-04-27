@@ -159,3 +159,88 @@ label {
 .modal-close-button:hover {
     background-color: #c82333;
 }
+
+@media (max-width: 568px) {
+    .profile-container {
+        width: 95%; /* コンテナの幅を調整 */
+        margin: 80px auto; /* 上下のマージンを減少 */
+    }
+
+    .profile {
+        padding: 15px; /* プロフィールのパディングを縮小 */
+    }
+
+    .user-detail {
+        flex-direction: column; /* ユーザ詳細を縦方向に配置 */
+        align-items: center; /* 中央揃えに変更 */
+        text-align: center; /* テキストを中央揃えに */
+    }
+
+    .profileImage {
+        width: 80px; /* プロフィール画像のサイズを縮小 */
+        height: 80px;
+        margin-bottom: 10px; /* 画像下のマージンを追加 */
+        margin-right: 0; /* 右マージンを削除 */
+    }
+
+    .profile h2 {
+        font-size: 20px; /* プロフィール名のフォントサイズを縮小 */
+        margin-top: 5px;
+        margin-bottom: 10px;
+    }
+
+    .profile h4 {
+        font-size: 14px; /* メールのフォントサイズを縮小 */
+        margin-top: 0px;
+        margin-bottom: 10px;
+    }
+
+    .userBio-text {
+        font-size: 12px;
+        margin-top: 0px;
+        margin-bottom: 5px;
+    }
+
+    .editProfileButton {
+        width: 100%; /* ボタンを幅一杯に展開 */
+        padding: 8px 0; /* パディングを調整 */
+    }
+
+    .editProfileIcon {
+        width: 14px; /* アイコンのサイズを縮小 */
+        height: 14px;
+    }
+
+    .userInfo-modal {
+        width: 90%; /* モーダルの幅を調整 */
+        max-width: 90%; /* モーダルの最大幅を調整 */
+    }
+
+    .modal-content {
+        width: 100%; /* モーダルコンテンツの幅を調整 */
+        padding: 15px; /* パディングを縮小 */
+    }
+
+    .profileImage2 {
+        width: 48px; /* プロフィール画像2のサイズを縮小 */
+        height: 48px;
+        margin-left: 10px;
+        margin-bottom: -10px;
+    }
+
+    .input-field {
+        width: calc(100% - 20px);
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .submit-button,
+    .modal-close-button {
+        padding: 5px 15px;
+        margin-top: 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+}

@@ -54,3 +54,36 @@
     font-size: 12px;
     color: #999;
 }
+
+@media (max-width: 568px) {
+    .like-notification {
+        margin-top: 70px; /* 通知の上のマージンを調整 */
+    }
+
+    .notification-item {
+        padding: 10px; /* 各通知項目のパディングを調整 */
+        font-size: 90%; /* テキスト全体のフォントサイズを縮小 */
+    }
+
+    .notification-item img {
+        width: 35px; /* プロフィール画像のサイズをさらに調整 */
+        height: 35px;
+        margin-right: 10px; /* 画像とテキストの間のマージンをさらに調整 */
+    }
+
+    .notification-item h3 {
+        font-size: 16px; /* 見出しのフォントサイズを調整 */
+    }
+
+    .notification-item p {
+        font-size: 14px; /* 段落テキストのフォントサイズを調整 */
+    }
+
+    .notification-item p.content {
+        font-size: 13px; /* コンテンツのテキストのフォントサイズを調整 */
+    }
+
+    .notification-item p.date {
+        font-size: 12px; /* 日付のテキストのフォントサイズを調整 */
+    }
+}

@@ -172,3 +172,45 @@
 .reply-button {
     color: #414040;
 }
+
+@media (max-width: 568px) {
+    .message-icon {
+        margin: 10px 15px; /* コンテナの外側のマージンを調整 */
+        padding: 10px; /* パディングを縮小 */
+    }
+
+    .users-profile-Img {
+        width: 30px; /* プロファイル画像のサイズを縮小 */
+        height: 30px;
+    }
+
+    .message-icon div.text {
+        font-size: 14px; /* テキストのフォントサイズを縮小 */
+    }
+
+    .content-text, .comment-text {
+        font-size: 13px; /* コンテンツテキストのフォントサイズを縮小 */
+    }
+
+    .like-button svg,
+    .comment-button svg,
+    .delete-button svg {
+        width: 18px; /* アイコンのサイズを縮小 */
+        height: 18px;
+    }
+
+    .modal {
+        width: 80%; /* モーダルの幅を調整 */
+        height: auto; /* モーダルの高さを内容に合わせて自動調整 */
+        max-height: 90%; /* モーダルの最大高さを調整 */
+    }
+
+    .modal textarea {
+        width: 95%; /* テキストエリアの幅を調整 */
+        margin-right: 0; /* マージンを削除 */
+    }
+
+    .comment {
+        margin: 10px 30px; /* コメントのマージンを調整 */
+    }
+}

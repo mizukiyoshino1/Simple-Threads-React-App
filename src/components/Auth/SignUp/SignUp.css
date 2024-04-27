@@ -69,3 +69,33 @@
 .login-link a:hover {
     text-decoration: underline;
 }
+
+@media (max-width: 568px) {
+    .user-access-container {
+        padding: 10px; /* コンテナのパディングを追加して、余白を確保 */
+    }
+
+    .signup-form {
+        max-width: 100%; /* サインアップフォームの最大幅を100%に設定 */
+        padding: 15px; /* フォームのパディングを調整 */
+    }
+
+    .signup-form h2 {
+        font-size: 18px; /* タイトルのフォントサイズを縮小 */
+    }
+
+    .form-control {
+        width: 100%; /* フォームコントロールの幅を100%に設定 */
+        padding: 8px; /* パディングを少し減らす */
+        font-size: 14px; /* フォントサイズを縮小 */
+    }
+
+    .btn-primary {
+        padding: 12px; /* ボタンのパディングを調整 */
+        font-size: 14px; /* ボタンのフォントサイズを縮小 */
+    }
+
+    .login-link {
+        margin-top: 10px; /* ログインリンクの上のマージンを調整 */
+    }
+}

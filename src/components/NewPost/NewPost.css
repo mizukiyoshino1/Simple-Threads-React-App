@@ -40,3 +40,32 @@
 .post-button:hover, .back-button:hover {
     background-color: #0056b3;
 }
+
+@media (max-width: 568px) {
+    .new-post-container {
+        max-width: 100%; /* コンテナの最大幅を100%に設定 */
+        margin: 100px 20px; /* 上下のマージンを減少し、自動で左右マージンを設定 */
+        padding: 15px; /* パディングを少し減らす */
+    }
+
+    .new-post-container h2 {
+        font-size: 20px; /* 見出しのフォントサイズを縮小 */
+        margin-bottom: 15px; /* 見出し下のマージンを調整 */
+    }
+
+    .new-post-container label {
+        font-size: 16px; /* ラベルのフォントサイズを調整 */
+    }
+
+    .content-input {
+        width: 94%; /* テキストエリアの幅を100%に設定 */
+        padding: 8px; /* パディングを少し減らす */
+        margin: 5px 0; /* 上下マージンを調整 */
+    }
+
+    .post-button, .back-button {
+        padding: 8px 16px; /* ボタンのパディングを調整 */
+        margin-top: 5px; /* ボタン上のマージンを調整 */
+        font-size: 14px; /* ボタンのフォントサイズを調整 */
+    }
+}
