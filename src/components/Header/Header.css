@@ -170,6 +170,7 @@
     }
 
     .header-title-link {
+        font-family: 'Arial Black', sans-serif;
         font-size: 15px; /* タイトルのフォントサイズを縮小 */
     }
 
