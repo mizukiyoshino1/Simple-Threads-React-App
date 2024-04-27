@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: url('../../../assets/img/login.jpg'); /* ここに背景画像のURLを指定 */
+    background-image: url('../../../assets/img/home.jpg'); /* ここに背景画像のURLを指定 */
     background-size: cover;
     background-position: center;
 }
