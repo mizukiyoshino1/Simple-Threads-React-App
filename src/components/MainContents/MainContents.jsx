@@ -41,6 +41,26 @@ function MainContents() {
         fetchData();
     }, []);
 
+    /**
+     * コメント追加処理
+     * MessageIconコンポーネントで使用
+     * 
+     */
+    const addComment = async (reportId, commentText) => {
+        try {
+            const response = await axios.post(`${BACKEND_URL}/api/comment`, {
+                userId: user.uid,
+                reportId: reportId,
+                commentText: commentText
+            });
+
+            // 現在のCommentsに、コメント追加処理したデータを追加
+            setComments(prevComments => [...prevComments, response.data]);
+        } catch (error) {
+            console.error('Error sending comment:', error);
+        }
+    };
+
     return (
         <>
             <Header />
@@ -50,6 +70,7 @@ function MainContents() {
                         key={content.id} 
                         content={content} 
                         comments={comments.filter(comment => comment.reportId === content.id)}
+                        addComment={addComment}
                     />
                 ))}
             </div>

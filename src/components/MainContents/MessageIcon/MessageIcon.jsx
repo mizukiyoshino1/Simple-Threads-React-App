@@ -6,7 +6,7 @@ import { validateRequired, validateSecurity } from '../../../common/Validation'
 import defaultImage from '../../../assets/img/default-profile-Img.png';
 import Modal from 'react-modal';
 
-const MessageIcon = ({ content, comments }) => {
+const MessageIcon = ({ content, comments, addComment }) => {
     // URL
     const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 
@@ -72,23 +72,11 @@ const MessageIcon = ({ content, comments }) => {
 
         // エラーメッセージが存在するか確認
         if(Object.keys(validationErrors).length === 0) {
-            try {
-                // コメント送信のAPIを呼び出す
-                await axios.post(`${BACKEND_URL}/api/comment`, {
-                    userId: userId,
-                    reportId: content.id,
-                    commentText: commentText
-                });
-    
-                // モーダルを閉じる
-                handleCloseModal();
-            } catch (error) {
-                console.error('Error sending comment:', error)
-            }
-        } else {
-            setErrors(validationErrors);
+            // MainContentsより取得したaddCommentを実行
+            await addComment(content.id, commentText);
+            setShowModal(false);
+            setCommentText('');
         }
-        
     }
 
     /**
