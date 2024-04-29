@@ -168,9 +168,11 @@ const Profile = () => {
                 });
 
                 // プロフィール情報をセット
-                if(userInfo.data.profileImageUrl !== ''){
+                if(userInfo.data.profileImageUrl){
                     setUserBio(userInfo.data.profileText);
                     setUserImg(userInfo.data.profileImageUrl);
+                } else {
+                    setUserImg(defaultImage);
                 }
 
             } catch (error) {

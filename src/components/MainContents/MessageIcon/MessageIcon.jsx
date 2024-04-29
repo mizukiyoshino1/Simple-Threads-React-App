@@ -99,7 +99,7 @@ const MessageIcon = ({ content, comments, addComment }) => {
         <>
             <div className="message-icon">
                 <div className="userInf">
-                    {content.profileImageUrl === '' ?
+                    {content.profileImageUrl === null || content.profileImageUrl === '' ?
                         <img
                             src={defaultImage}
                             alt="Default Profile"
@@ -174,7 +174,7 @@ const MessageIcon = ({ content, comments, addComment }) => {
             {commentShowFlg === true && comments.map(comment => (
                 <div className="comment">
                     <div className="userInf">
-                        {comment.profileImageUrl === '' ?
+                        {comment.profileImageUrl === null || comment.profileImageUrl === '' ?
                             <img
                                 src={defaultImage}
                                 alt="Default Profile"
