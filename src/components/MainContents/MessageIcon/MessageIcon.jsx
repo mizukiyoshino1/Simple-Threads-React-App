@@ -5,6 +5,8 @@ import { useAuthContext } from '../../../context/AuthContext';
 import { validateRequired, validateSecurity } from '../../../common/Validation'
 import defaultImage from '../../../assets/img/default-profile-Img.png';
 import Modal from 'react-modal';
+import { getStorage, ref, deleteObject } from "firebase/storage";
+
 
 const MessageIcon = ({ content, comments, addComment }) => {
     // URL
@@ -87,6 +89,21 @@ const MessageIcon = ({ content, comments, addComment }) => {
         const confirmDelete = window.confirm("本当にこの投稿を削除しますか？");
         if (confirmDelete) {
             try {
+                if (content.imageUrls && content.imageUrls.length > 0) {
+                    // Firebase Storageの設定
+                    const storage = getStorage();
+    
+                    // 画像URLに基づいて画像を削除
+                    const deletePromises = content.imageUrls.map((imageUrl) => {
+                        const imageRef = ref(storage, imageUrl);
+                        return deleteObject(imageRef);
+                    });
+    
+                    // すべての画像の削除を待つ
+                    await Promise.all(deletePromises);
+                }
+
+                // 投稿のデータを削除
                 await axios.delete(`${BACKEND_URL}/api/delete/${content.id}`);
                 window.location.reload();
             } catch (error) {
@@ -111,10 +128,18 @@ const MessageIcon = ({ content, comments, addComment }) => {
                             className="users-profile-Img"
                         />
                         }
-                    <div>
+                    <div className="reports-detail-area">
                         <div className="text"><span>{content.userName}</span></div>
                         <div className="content-text"><span>{content.content}</span></div>
+                        <div className="image-container">
+                            {content.imageUrls && content.imageUrls.map((url, index) => (
+                                <div key={index} className="image-box">
+                                    <img src={url} alt={`Content Image ${index}`} className="content-image" />
+                                </div>
+                            ))}
+                        </div>
                     </div>
+
                 </div>
                 <div className="border-area">
                     <button type="button" onClick={handleLike} className="like-button">
