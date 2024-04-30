@@ -27,14 +27,14 @@
     flex-wrap: nowrap;
     overflow-x: auto;
     gap: 10px;
-    padding: 10px 0;
+    padding-top: 10px;
     align-items: center;
     width: 95%;
 }
 
 .image-box {
-    flex: 0 0 120px;
-    height: 120px;
+    flex: 0 0 250px;
+    height: 250px;
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -79,6 +79,7 @@
 .border-area {
     display: flex;
     align-items: center;
+    height: 15px;
 }
 
 .like-button,
@@ -223,8 +224,8 @@
     }
 
     .image-box {
-        flex-basis: 80px; /* 小さなデバイスでは画像コンテナの基本サイズを80pxに設定 */
-        height: 80px;
+        flex-basis: 200px; /* 小さなデバイスでは画像コンテナの基本サイズを80pxに設定 */
+        height: 200px;
     }
 
     .like-button svg,
