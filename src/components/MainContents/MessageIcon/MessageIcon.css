@@ -224,8 +224,8 @@
     }
 
     .image-box {
-        flex-basis: 200px; /* 小さなデバイスでは画像コンテナの基本サイズを80pxに設定 */
-        height: 200px;
+        flex-basis: 258px; /* 小さなデバイスでは画像コンテナの基本サイズを80pxに設定 */
+        height: 258px;
     }
 
     .like-button svg,
